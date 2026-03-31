@@ -1,14 +1,14 @@
 {
-  "name": "@sanitysign/chartjs-plugin-crosshair",
+  "name": "@simplight/chartjs-plugin-crosshair",
   "homepage": "https://chartjs-plugin-crosshair.netlify.com",
   "description": "Chart.js plugin to draw and sync vertical crosshair lines",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "main": "dist/chartjs-plugin-crosshair.js",
   "module": "dist/chartjs-plugin-crosshair.esm.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sanitysign/chartjs-plugin-crosshair.git"
+    "url": "git+https://github.com/SimpLight/chartjs-plugin-crosshair.git"
   },
   "keywords": [
     "chart.js",
