@@ -562,7 +562,7 @@ export default {
 
       if (isStepped && prev) {
         dataset.interpolatedValue = prev.y
-      } else if (prev && next) {
+      } else if (prev && next && next.y !== null) {
         const slope = (next.y - prev.y) / (next.x - prev.x)
         dataset.interpolatedValue = prev.y + (xValue - prev.x) * slope
       } else {

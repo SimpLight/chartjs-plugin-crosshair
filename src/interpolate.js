@@ -133,7 +133,7 @@ export default function (chart, e, options) {
       next = data[index]
     }
 
-    if (prev && next && !isCategory) {
+    if (prev && next && next.y !== null && !isCategory) {
       const slope = (next.y - prev.y) / (next.x - prev.x)
       interpolatedValue = prev.y + (xValue - prev.x) * slope
     }
