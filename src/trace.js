@@ -4,6 +4,7 @@ import { getInterpolatedValues } from "./interpolate"
 
 var defaultOptions = {
   line: {
+    enabled: true,
     color: "#F66",
     width: 1,
     dashPattern: [],
@@ -169,6 +170,10 @@ export default {
   },
 
   afterEvent: function (chart, event) {
+    if (!chart.crosshair) {
+      return
+    }
+
     if (chart.config.options.scales.x.length === 0) {
       return
     }
@@ -258,8 +263,10 @@ export default {
 
   afterDraw: function (chart) {
     if (!chart.crosshair?.enabled) {
-      return
+      return true
     }
+
+    chart.ctx.save()
 
     if (chart.crosshair.dragStarted) {
       this.drawZoombox(chart)
@@ -268,6 +275,8 @@ export default {
       this.interpolateValues(chart)
       this.drawTracePoints(chart)
     }
+
+    chart.ctx.restore()
 
     return true
   },
@@ -460,6 +469,10 @@ export default {
   },
 
   drawTraceLine: function (chart) {
+    if (!chart.options.plugins.crosshair?.line?.enabled) {
+      return
+    }
+
     var yScale = this.getYScale(chart)
 
     var lineWidth = this.getOption(chart, "line", "width")
